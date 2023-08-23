@@ -161,6 +161,6 @@ public class NoteServiceTest {
 
         List<Note> list = noteService.getNoteList();
 
-        assertTrue(list.isEmpty());    //проверка что все из найденных заметок содержат введенный лэйбл
+        assertTrue(list.isEmpty());    
     }
 }
