@@ -1,11 +1,11 @@
-package jm.task.core.service;
+package jm.task.core.dao;
 
 import jm.task.core.model.Note;
 
 import java.util.List;
 import java.util.Scanner;
 
-public interface NoteService {
+public interface NoteDAO {
     void getListOfCommands();
 
     Note createNewNote();

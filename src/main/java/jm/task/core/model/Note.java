@@ -1,18 +1,35 @@
 package jm.task.core.model;
 
-import lombok.Data;
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-@Data
-public class Note extends IdGenerator{
+public class Note {
     @Getter
     private static List<Note> listOfNotes = new ArrayList<>();
     private int id;
-    String text;
-    List<String> labels;
+    private String text;
+    private List<String> labels;
+    private static int count = 0;
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Note)) return false;
+        Note note = (Note) o;
+        return id == note.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     public Note(String text, List<String> labels) {
         this.id = generateId();
@@ -25,7 +42,7 @@ public class Note extends IdGenerator{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(id).append("#");
-        sb.append(text+"\n");
+        sb.append(text + "\n");
 
         if (labels != null && !labels.isEmpty()) {
             for (String label : labels) {
@@ -38,5 +55,13 @@ public class Note extends IdGenerator{
 
     public List<String> getLabels() {
         return labels;
+    }
+
+    public static int generateId() {
+        return ++count;
+    }
+
+    public String getText() {
+        return text;
     }
 }
