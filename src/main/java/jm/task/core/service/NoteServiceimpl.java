@@ -28,7 +28,7 @@ public class NoteServiceimpl implements NoteService {
                 default -> {
                     log.warning("введена неверная команда");
                     log.info("команда не найдена");
-                }   //+
+                }   
             }
         }
     }
